@@ -6,12 +6,12 @@ import torchvision.models as models
 
 app = Flask(__name__)
 
-# ✅ ADD THIS
+
 @app.route('/')
 def home():
     return "AI Service Running"
 
-model = models.densenet121(pretrained=True)
+model = models.densenet121(weights=models.DenseNet121_Weights.DEFAULT)
 model.eval()
 
 transform = transforms.Compose([
