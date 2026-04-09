@@ -12,5 +12,4 @@ RUN chmod +x mvnw
 # Build project
 RUN ./mvnw clean package -DskipTests
 
-# Run jar
-CMD ["java", "-jar", "target/*.jar"]
+CMD ["sh", "-c", "java -jar target/*.jar"]
