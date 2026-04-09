@@ -10,7 +10,7 @@ import java.util.Comparator;
 @Service
 public class AllocationService {
 
-    // 🔹 Check blood compatibility
+    //Check blood compatibility
     public boolean isCompatible(String pBG, String dBG) {
         return pBG.equals(dBG);
     }
@@ -19,17 +19,17 @@ public class AllocationService {
 
         return patients.stream()
 
-                // ✅ Step 1: Blood match
+                //  Blood match
                 .filter(p -> isCompatible(p.getBloodGroup(), donor.getBloodGroup()))
 
-                // ✅ Step 2: Organ match
+                //  Organ match
                 .filter(p -> p.getOrganNeeded().equalsIgnoreCase(donor.getOrganType()))
 
-                // ✅ Step 3 & 4: Sort
+                // Sort
                 .max(
                     Comparator
-                        .comparingDouble(Patient::getAiSeverityScore)   // highest severity
-                        .thenComparingInt(Patient::getWaitingDays)      // highest waiting
+                        .comparingDouble(Patient::getAiSeverityScore)   
+                        .thenComparingInt(Patient::getWaitingDays)      
                 )
 
                 .orElse(null);

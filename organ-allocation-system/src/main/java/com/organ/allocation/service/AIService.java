@@ -20,7 +20,7 @@ public class AIService {
 
         RestTemplate restTemplate = new RestTemplate();
 
-        // Convert file to resource
+        
         ByteArrayResource resource = new ByteArrayResource(file.getBytes()) {
             @Override
             public String getFilename() {
@@ -28,22 +28,22 @@ public class AIService {
             }
         };
 
-        // Prepare request body
+        
         MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
         body.add("file", resource);
 
-        // Set headers
+        
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 
         HttpEntity<MultiValueMap<String, Object>> requestEntity =
                 new HttpEntity<>(body, headers);
 
-        // Send request to Python API
+        
         ResponseEntity<Map> response =
                 restTemplate.postForEntity(url, requestEntity, Map.class);
 
-        // Extract severity
+        
         return Double.parseDouble(response.getBody().get("severity").toString());
     }
 }

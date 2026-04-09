@@ -25,7 +25,7 @@ public class AllocationController {
     private DonorRepository donorRepo;
 
     @Autowired
-    private AllocationRepository allocationRepo;   // 🔥 NEW
+    private AllocationRepository allocationRepo;   
 
     @Autowired
     private AllocationService service;
@@ -33,7 +33,7 @@ public class AllocationController {
     @GetMapping("/{donorId}")
     public Patient allocate(@PathVariable Long donorId) {
 
-        // 🔍 Fetch donor
+      
         Donor donor = donorRepo.findById(donorId).orElse(null);
 
         if (donor == null) {
@@ -41,9 +41,9 @@ public class AllocationController {
             return null;
         }
 
-        System.out.println("✅ Donor Found: " + donor.getName());
+        System.out.println(" Donor Found: " + donor.getName());
 
-        // 🔍 Fetch patients
+      
         List<Patient> patients = patientRepo.findAll();
 
         System.out.println("TOTAL PATIENTS: " + patients.size());
@@ -52,15 +52,15 @@ public class AllocationController {
             System.out.println(p.getName() + " → " + p.getAiSeverityScore());
         }
 
-        // 🔍 Allocate
+        
         Patient selected = service.allocateOrgan(patients, donor);
 
         if (selected == null) {
             System.out.println("❌ No patient selected");
         } else {
-            System.out.println("✅ Selected Patient: " + selected.getName());
+            System.out.println(" Selected Patient: " + selected.getName());
 
-            // 🔥 SAVE ALLOCATION
+            
             Allocation allocation = new Allocation();
             allocation.setPatientName(selected.getName());
             allocation.setDonorName(donor.getName());
