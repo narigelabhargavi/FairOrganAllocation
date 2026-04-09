@@ -10,8 +10,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return "AI Service Running"
-
-model = models.densenet121(weights=models.DenseNet121_Weights.DEFAULT)
+models.densenet121(pretrained=False)
 model.eval()
 
 transform = transforms.Compose([
