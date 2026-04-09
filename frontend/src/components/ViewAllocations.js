@@ -5,7 +5,7 @@ function ViewAllocations() {
   const [allocations, setAllocations] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/allocations")
+    axios.get("https://fairorganallocation-4.onrender.com/allocations")
       .then((res) => setAllocations(res.data))
       .catch(() => alert("Error fetching allocations"));
   }, []);

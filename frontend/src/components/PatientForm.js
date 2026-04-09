@@ -39,7 +39,7 @@ function PatientForm() {
       formData.append("waitingDays", patient.waitingDays);
 
       const res = await axios.post(
-        "http://localhost:8080/patients/upload",
+        "https://fairorganallocation-4.onrender.com/patients/upload",
         formData
       );
 

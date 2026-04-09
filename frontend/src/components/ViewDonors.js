@@ -5,7 +5,7 @@ function ViewDonors() {
   const [donors, setDonors] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/donors")
+    axios.get("https://fairorganallocation-4.onrender.com/donors")
       .then((res) => setDonors(res.data))
       .catch(() => alert("Error fetching donors"));
   }, []);

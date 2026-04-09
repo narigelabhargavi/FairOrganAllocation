@@ -5,7 +5,7 @@ function ViewPatients() {
   const [patients, setPatients] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/patients")
+    axios.get("https://fairorganallocation-4.onrender.com/patients")
       .then((res) => setPatients(res.data))
       .catch(() => alert("Error fetching patients"));
   }, []);

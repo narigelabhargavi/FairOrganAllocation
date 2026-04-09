@@ -6,7 +6,7 @@ function Allocate() {
   const [result, setResult] = useState(null);
 
   const allocate = () => {
-    axios.get(`http://localhost:8080/allocate/${donorId}`)
+    axios.get(`https://fairorganallocation-4.onrender.com/allocate/${donorId}`)
       .then((res) => {
 
         

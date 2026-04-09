@@ -14,7 +14,7 @@ function DonorForm() {
 
   const submit = async () => {
     try {
-      await axios.post("http://localhost:8080/donors", donor);
+      await axios.post("https://fairorganallocation-4.onrender.com/donors", donor);
 
       // 🔥 Show success popup
       alert("Donor Added Successfully");
