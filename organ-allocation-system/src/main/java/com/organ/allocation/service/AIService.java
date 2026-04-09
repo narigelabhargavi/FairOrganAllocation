@@ -16,7 +16,7 @@ public class AIService {
 
     public double getSeverity(MultipartFile file) throws IOException {
 
-        String url = "https://fairorganallocation-1.onrender.com/predict";
+        String url = "https://fairorganallocation-1.onrender.com";
 
         RestTemplate restTemplate = new RestTemplate();
 
