@@ -9,12 +9,12 @@ function Allocate() {
     axios.get(`http://localhost:8080/allocate/${donorId}`)
       .then((res) => {
 
-        // 🔥 CASE 1: No patient found
+        
         if (!res.data) {
           alert("No suitable patient found for this donor");
           setResult(null);
         } 
-        // 🔥 CASE 2: Patient found
+        
         else {
           alert(`Organ allocated to: ${res.data.name}`);
           setResult(res.data);
@@ -42,7 +42,7 @@ function Allocate() {
 
           <button onClick={allocate}>Allocate</button>
 
-          {/* 🔥 SHOW RESULT */}
+          {/*  SHOW RESULT */}
           {result && (
             <div style={{ marginTop: "15px" }}>
               <h3>Selected Patient:</h3>

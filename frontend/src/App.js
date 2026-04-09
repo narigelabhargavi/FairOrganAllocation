@@ -9,31 +9,26 @@ import Allocate from "./components/Allocate";
 import ViewDonors from "./components/ViewDonors";
 import ViewPatients from "./components/ViewPatients";
 import ViewAllocations from "./components/ViewAllocations";
+import Chatbot from "./components/Chatbot"; // ✅ ONLY ONCE
 
 function App() {
   return (
     <Router>
+      
+      {/* ✅ ROUTES */}
       <Routes>
-        {/* Home Page */}
         <Route path="/" element={<Home />} />
-
-        {/* Donor Page */}
         <Route path="/donor" element={<DonorForm />} />
-
-        {/* Patient Page */}
         <Route path="/patient" element={<PatientForm />} />
-
-        {/* Allocation Page */}
         <Route path="/allocate" element={<Allocate />} />
-
-        {/* View Pages */}
         <Route path="/view-donors" element={<ViewDonors />} />
         <Route path="/view-patients" element={<ViewPatients />} />
-
-        {/* 🔥 NEW ROUTE */}
         <Route path="/view-allocations" element={<ViewAllocations />} />
-
       </Routes>
+
+      {/* ✅ GLOBAL CHATBOT (VERY IMPORTANT) */}
+      <Chatbot />
+
     </Router>
   );
 }

@@ -14,7 +14,7 @@ function Home() {
       >
         <div className="hero-text">
           AI-Based Organ Allocation  
-          Decision Support System
+           Support System
         </div>
       </div>
 
@@ -56,6 +56,7 @@ function Home() {
       View Allocations
     </button>
   </div>
+  
 
 </div>
 
